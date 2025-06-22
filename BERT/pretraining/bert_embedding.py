@@ -9,7 +9,7 @@ class BertEmbedding(nn.Module):
         self.hidden_size = config.hidden_size
         self.hidden_dropout_prob = config.hidden_dropout_prob
         self.token_embedding = nn.Embedding(self.vocab_size, self.hidden_size, padding_idx=0)
-        self.segment_embedding = nn.Embedding(3, self.hidden_size, padding_idx=0)
+        self.segment_embedding = nn.Embedding(2, self.hidden_size)
         self.position_embedding = nn.Embedding(self.max_seq_len, self.hidden_size)
         self.layer_norm = nn.LayerNorm(self.hidden_size, eps=1e-6)
         self.dropout = nn.Dropout(self.hidden_dropout_prob)
