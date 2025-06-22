@@ -43,7 +43,7 @@ def tokenize_batch(batch):
     return {'tokenized_text': result}
 
 ## MLM, NSP task
-MlmSequence = namedtuple('mlm_token_sequence', ['mlm_sequence']) # 애랑
+MlmSequence = namedtuple('mlm_token_sequence', ['mlm_sequence']) 
 MlmIndexAndLabel = namedtuple('mlm_pred_positions_and_labels', ['mlm_index', 'mlm_label'])
 
 def get_target_seq_length(max_num_tokens, config):
