@@ -125,7 +125,7 @@ if __name__ == '__main__':
     model.load_state_dict(pretrained_dict, strict=False)
     print(f'The model has {count_parameters(model):,} trainable parameters')
 
-    criterion = nn.CrossEntropyLoss().to(config.device)
+    criterion = nn.BCEWithLogitsLoss()
     epochs = 1
     total_steps = len(train_loader) * epochs
     optimizer, scheduler = optimizer_and_scheduler(model, total_steps, config)
@@ -146,3 +146,4 @@ if __name__ == '__main__':
     model.load_state_dict(torch.load('sst2_finetuned_model.pt'))
     test_loss, test_acc = evaluate_finetune(model, test_loader, criterion, config)
     print(f'Test Loss: {test_loss:.4f} | Test Acc: {test_acc:.4f}%')
+
